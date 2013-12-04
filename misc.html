@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- Hand-coded by Dan Hicks using TextWrangler and Google Chrome -->
+<html>
+
+<head>
+	<title>
+		Dan Hicks, a Philosopher
+	</title>
+	<link rel="stylesheet" href="ND.css" type="text/css" >
+	
+	<!-- Google Analytics tracking code -->
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-33909972-1']);
+		_gaq.push(['_trackPageview']);
+	
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+</head>
+
+<body>
+<ul class="nav">
+		<!--<p> Dan Hicks, a Philosopher </p>-->
+		<li> <a href="index.html"><img src="webpage-1.jpg" alt="webpage-1.jpg"><br>Landing page</a> </li>
+		<li> <a href="research.html"><img src="webpage-2.jpg" alt="webpage-2.jpg"><br>Research stuff</a> </li>
+		<li> <a href="teaching.html"><img src="webpage-3.jpg" alt="webpage-3.jpg"><br>Teaching stuff</a> </li>		
+		<li> <a href="students.html"><img src="webpage-4.jpg" alt="webpage-4.jpg"><br>Stuff for students</a> </li>
+		<li> <a href="misc.html"><img src="webpage-5.jpg" alt="webpage-5.jpg"><br>Other stuff</a> </li>
+	</ul>
+
+<div id="wrapper">
+	<div id="main">
+		<h2 id="first">
+		Other stuff
+		</h2>
+		
+		<p>This page covers everything that isn't covered by the other pages. </p>
+		
+		<h3> LaTeX class and style files </h3>
+		<ul class="files">
+			<li> <a href="misc/logicsymbols.sty"><tt>logicsymbols.sty</tt></a> </li>
+				A style file with macros for writing logic and metalogic symbols.  Includes automatic parentheses (when used properly), some macros for modal logic with arbitrary indices, and an option to switch between "philosopher"- and "mathematician"-style symbols (e.g., a horseshoe vs. an arrow for the conditional). For details, see the first part of the file. 
+			<li> <a href="misc/philslides.cls"><tt>philslides.cls</tt></a> </li>
+				Based on Beamer; provides numerous macros to facilitate writing sets of slides for a philosophy talk or lecture, including the formatting of arguments and slides with quotations.  For details, see the first part of the file. 
+			<li> <tt>nddiss2e.cls</tt> </li>
+				My version of the semi-official class file for dissertations for Notre Dame's graduate school.  The semi-official file was originally written in 2004-5 in TeX, and did not support recent advances in citations that are especially useful in the humanities, viz., <a href="http://sourceforge.net/projects/biblatex/"><tt>biblatex</tt></a> and <a href="http://www.ctan.org/pkg/biblatex-chicago"><tt>biblatex-chicago</tt></a>.  My version provides this support.  However, I did not properly document my changes, and the file as a whole is still atrocious and unwieldy.  I understand that <a href="http://charlespence.net">Charles Pence</a> has written his own class file; I expect that his would be much more trocious and wieldy. 
+			<li> <a href="http://jefais.tumblr.com/post/27916537053/a-very-easy-but-slightly-expensive-way-to-convert">A Very Easy (but slightly expensive) Way to Convert LaTeX into Word</a> </li>
+				Adobe Acrobat Pro can convert PDF files into Word.  This is the simplest conversion method that I've heard of.
+		</ul>
+		
+		
+		<h3> <a href="misc/pandoc_scripts.zip">TextWrangler/Pandoc scripts</a> </h3>
+		<p>These <a href="http://www.barebones.com/products/textwrangler/">TextWrangler</a> Applescripts use <a href="http://johnmacfarlane.net/pandoc/">John MacFarlane's pandoc utility</a> to convert among <a href="http://daringfireball.net/projects/markdown/">markdown</a>, HTML, and <a href="http://www.tug.org/texlive/">LaTeX</a>, and from any of these into RTF. Since TextWrangler and Applescript are Mac-only, these scripts are also Mac-only.</p>
+		<p>To use:</p>
+		<ol style="list-style-type: decimal">
+		<li>Install <a href="http://johnmacfarlane.net/pandoc/">pandoc</a>.</li>
+		<li>In TextWrangler, go to Scripts (the scroll icon) -&gt; Open Scripts Folder, and drag the script files into the Finder window that opens.</li>
+		<li>Write something in TextWrangler using markdown, HTML, or LaTeX.</li>
+		<li>In the Scripts menu, select the appropriate <em>source -&gt; target</em> script.</li>
+		</ol>
+		<ul>
+		<li>Pandoc needs to work with a file. If your written something isn't saved, you'll be prompted to do so.<br /></li>
+		<li>The target file will be in the same folder as the source file. It will have the same name as the target, but the corresponding extension.<br /></li>
+		<li>If the script detects a file with that name, it will ask you to confirm the overwrite.<br /></li>
+		<li>TextWrangler will automatically open the result.</li>
+		</ul>
+
+		
+		<h3><a href="http://www.mekentosj.com/papers/">Papers</a></h3>
+		<p>Papers is a piece of personal knowledge base software designed for academic research -- think iTunes for publications, especially electronically-published journal articles.  I keep as much of my research library in Papers as searchable PDF files as possible.  There is a <a href="http://www.mekentosj.com/support/papers/students">student discount</a> for Papers.</p>
+		<ul>
+			<li> <a href="misc/switch libraries.scpt"><tt>switch libraries.scpt</tt></a></li>
+				As of this time, Papers does not officially support more than one "library" of files on a given machine.  This AppleScript offers that support.  To create a new library, simply run the script and, when prompted, indicate the folder where the new library files should be stored.  Surprisingly few preferences will carry over from previous libraries, and you will have to re-enter your registration code.  
+		</ul>
+		
+		<h3><a href="http://www.devontechnologies.com/products/devonthink/">DEVONthink Pro</a></h3>
+		<p>Despite the rather silly spelling, DEVONthink is extremely powerful personal knowledge base software, including automated tagging and sophisticated search capabilities.  I use it in tandem with Papers -- Papers does the organization, DEVONthink does the searching.  There is a <a href="http://www.devontechnologies.com/discounts/students-and-educators.html">educational discount</a> for DEVONthink.</p>
+		<ul>
+			<li> <a href="misc/Extract and Index Skim Notes.scpt"><tt>Extract and Index Skim Notes.scpt</tt></a></li>
+			To use this script, first select some PDF files in DEVONthink.  The script opens the files in <a href="http://skim-app.sourceforge.net/">Skim</a>, extracts any notes/annotations that are in either PDF or Skim format, saves these in a separate file (not overwriting the original file in any way), then indexes the notes files in DEVONthink.  A Smart Group of all and only Skim notes in DEVONthink lets me quickly search almost all of my highlights and marginal comments for the past six or seven years.  
+		</ul>
+		
+		<h3>On Marvelous Things Heard</h3>
+		<p> If you've made it this far, you might also be interested in the following apps and utilities, none of which I am at all responsible for in any way and many of which are only for Macs. </p>
+		<ul>
+			<li> <a href="http://sourceforge.net/projects/briss/">Briss</a>, some nice software for cropping PDFs.  It works especially well for splitting double-page scans.  Be aware that there's no nice way to <a href="http://www.mobileread.com/forums/showthread.php?t=46940">non-non-destructively crop</a> PDFs using Adobe Acrobat. </li>
+			<li> <a href="http://www.pdfsam.org/">PDFsam</a>, more nice software, this time for merging and splitting PDFs.  Useful for merging "even page" and "odd page" scans. </li>
+			<li> <a href="http://goto11.net/oneway/">OneWay</a>, a Mac context-menu (S)FTP uploader. </li>
+			<li> <a href="http://hasseg.org/tagger/">Tagger</a>, for working with OpenMeta tags. </li>
+			<li> <a href="http://staff.tumblr.com/post/286303145/tumblr-backup-mac-beta">Tumblr Backup</a>, which also works as a way to download tumblr posts for, e.g., link extraction and archival. </li>
+			<li> <a href="http://sourceforge.net/projects/solitairecatan/">Solitaire Settlers of Catan</a> </li>	
+		</ul>
+
+</div>	
+</div>
+
+<div id="footer">
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" ></a><br >This <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" rel="dct:type">work</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Dan Hicks</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.</div>
+</body>
+</html>
