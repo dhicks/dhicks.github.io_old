@@ -1,0 +1,207 @@
+% This extremely simple package includes several standardized macros for logical symbols.  Package options `phil' (default) and `math' switch between philosophy-style and math-style symbols, e.g., a horsehose vs. an arrow for if-then.  
+%
+% Currently the following operators are provided:  
+% not, both-and, either-or, if-then, iff*, were* (counterfactual)
+% hence, 
+% forall, exists, is (identity), the (definite description), 
+% ought, permiss(ible), nec(essary), poss(ible), causes*
+%
+% The macro for operator foo is \lsfoo
+% Operators in pairs, e.g., if-then, are designed so that the corresponding macros are in pairs, e.g., \lsif \p \lsthen \q.  Parentheses are placed automatically in this way.  
+% Operators marked with a *, e.g., iff*, take two arguments, e.g., \lsiff{\p}{\q}. Parentheses are placed automatically.  
+% Operators nec and poss take optional arguments for arbitrary-index modal operators, e.g., \lsposs[i] typesets <i>
+%
+% Currently macros for the following support relations are provided:  
+% def (definition), implies (syntactic), entails (semantic), forces (modal)
+%
+% Currently macros for the following letters are provided:  
+% p, q, r, x, y, z, A, B, C, E, F, G
+%
+% Other miscellaneous symbols provided: 
+% accessibility relation (modal logic):  \acc (one optional argument, for modal index)
+% converse accessbility (curved-less-than):  \prec (no arguments)
+%
+% Several solutions based on those provided by Peter Smith at LaTeX for Logicians:  
+% http://www.logicmatters.net/latex-for-logicians/
+
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesPackage{logicsymbols}[2011/25/05 v0.1 Symbols for Logicians]
+
+\RequirePackage{amssymb}
+\RequirePackage{ifthen}
+\RequirePackage{MnSymbol}
+\RequirePackage{graphicx}
+
+\newboolean{phil}
+	\setboolean{phil}{true}
+\DeclareOption{phil}{\setboolean{phil}{true}}
+\DeclareOption{math}{\setboolean{phil}{false}}
+\ProcessOptions
+
+% Operators ----------------------------------------------------------------
+
+\newcommand{\lsnot}
+{
+	\ifthenelse
+	{\boolean{phil}}
+	{\raise.17ex\hbox{$\sim$}}
+	%{\ensuremath{\sim}}
+	{\ensuremath{\lnot}}
+}
+\newcommand{\lsboth}
+{
+	\ensuremath{(}
+}
+\newcommand{\lsand}[1]
+{
+	\ifthenelse
+	{\boolean{phil}}
+	{\ensuremath{\cdot #1 )}}
+	{\ensuremath{\land #1}}
+}
+\newcommand{\lseither}
+{
+	\ensuremath{(}
+}
+\newcommand{\lsor}[1]
+{
+	\ifthenelse
+	{\boolean{phil}}
+	{\ensuremath{\vee #1 )}}
+	{\ensuremath{\vee #1}}
+}
+\newcommand{\lsif}
+{
+	\ensuremath{(}
+}
+\newcommand{\lsthen}[1]
+{
+	\ifthenelse
+	{\boolean{phil}}
+	{\ensuremath{\supset #1 )}}
+	{\ensuremath{\to #1}}
+}
+\newcommand{\lsiff}[2]
+{
+	\ifthenelse
+	{\boolean{phil}}
+	{\ensuremath{(#1 \equiv #2)}}
+	{\ensuremath{#1 \leftrightarrow #2}}
+}
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\boxright}{\mathrel}{symbolsC}{128}
+\newcommand{\lswere}[2]
+{
+	\ensuremath{(#1 \boxright #2)}
+}
+
+\providecommand{\hence}{\ensuremath{\therefore}~}
+\newcommand{\lshence}{\hence}
+
+\newcommand{\lsforall}[1]
+{
+	\ifthenelse
+	{\boolean{phil}}
+	{\ensuremath{(#1)}}
+	{\ensuremath{\forall #1}}
+}
+\newcommand{\lsexists}[1]
+{
+	\ifthenelse
+	{\boolean{phil}}
+	{\ensuremath{(\exists #1)}}
+	{\ensuremath{\exists #1}}
+}
+
+\newcommand{\lsis}
+{
+	\ensuremath{=}
+}
+
+\newcommand{\lsthe}[1]
+{
+	\ifthenelse
+	{\boolean{phil}}
+	{\ensuremath{(\rotatebox[origin=c]{180}{$\iota$} #1)}}
+	{\ensuremath{\rotatebox[origin=c]{180}{$\iota$} #1~}}
+	\ignorespacesafterend
+}
+
+\newcommand{\lsimp}[1]
+{
+	\ensuremath{\underline{#1}}\ignorespacesafterend
+}
+
+\newcommand{\lsought}
+{
+	\ensuremath{\mathrm{O}}\ignorespacesafterend
+}
+\newcommand{\lspermiss}
+{
+	\ensuremath{\mathrm{R}}\ignorespacesafterend
+}
+
+\newcommand{\lsnec}[1][]
+{
+	\ifthenelse
+	{\equal{#1}{}}
+	{\ensuremath{\Box}\ignorespacesafterend}
+	%{\ensuremath{\left[#1\right]}\ignorespacesafterend}
+	{\ensuremath{\Box_{#1}}\ignorespacesafterend}
+}
+\newcommand{\lsposs}[1][]
+{
+	\ifthenelse
+	{\equal{#1}{}}
+	{\ensuremath{\Diamond}\ignorespacesafterend}
+	%{\ensuremath{<\!#1\!>}\ignorespacesafterend}
+	{\ensuremath{\Diamond_{#1}}\ignorespacesafterend}
+}
+\newcommand{\lscauses}[2]
+{
+	\ensuremath{(#1 \hookrightarrow #2)}
+}
+
+% Support relations ----------------------------------------------------------------
+
+\newcommand{\lsdef}
+{
+	\ensuremath{=_\textrm{df}}
+}
+\newcommand{\lsimplies}
+{
+	\ensuremath{\vdash}
+}
+\newcommand{\lsentails}
+{
+	\ensuremath{\vDash}
+}
+\newcommand{\lsforces}
+{%
+	\ensuremath{\Vdash}%
+}
+
+% Single letters --------------------------------------------------------------------
+	
+\newcommand{\p}{\ensuremath{p}}
+\newcommand{\q}{\ensuremath{q}}
+\renewcommand{\r}{\ensuremath{r}}
+\newcommand{\x}{\ensuremath{x}}
+\newcommand{\y}{\ensuremath{y}}
+\newcommand{\z}{\ensuremath{z}}
+\newcommand{\A}{\ensuremath{A}}
+\newcommand{\B}{\ensuremath{B}}
+\newcommand{\C}{\ensuremath{C}}
+\newcommand{\E}{\ensuremath{E}}
+\newcommand{\F}{\ensuremath{F}}
+\newcommand{\G}{\ensuremath{G}}
+
+% Miscellaneous ------------------------------------------------------------------
+
+\newcommand{\acc}[1][]
+{
+	\ensuremath{\overset{#1}{\longrightarrow}}
+}
+
+\newcommand{\lsacc}[1][]{\acc[#1]}
+\newcommand{\lsprec}[1][]{\prec_{#1}}
