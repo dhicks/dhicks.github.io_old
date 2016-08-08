@@ -140,7 +140,7 @@ ul.nav
 /* footer *************************************************/
 #footer
 {
-	clear:both;
+	clear:left;
 	bottom:0em;
 	width:100%;
 	text-align:right;
